@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <title>project/example</title>
+    <link rel="stylesheet" href="../../vendor/qunit/qunit.css" type="text/css" media="screen">
+</head>
+<body>
+<h1 id="qunit-header">project/example</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+
+<script type="text/javascript">
+var curl = {
+    baseUrl: '../../',
+    paths: {
+        curl: 'vendor/curl',
+        src: 'src/'
+    },
+    apiName: 'require',
+    pluginPath: 'vendor/curl/plugins'
+    };
+</script>
+
+<script type="text/javascript" src="../../vendor/curl/curl.js"></script>
+<script src="../../vendor/qunit/qunit-1.5.0.js"></script>
+<script src="../../vendor/sinon/sinon-1.1.1.js"></script>
+<script src="../../vendor/sinon/sinon-qunit-1.0.0.js"></script>
+
+<script type="text/javascript">
+// stop the tests until require has loaded the dependencies
+QUnit.config.autostart = false; 
+
+// tests to run
+require(["tests/qunit/example", "domReady!"], function() {
+    QUnit.start();
+    });
+</script>
+
+</body>
+</html>
+
+

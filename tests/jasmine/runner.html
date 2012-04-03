@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <title>project/example</title>
+    <link rel="stylesheet" type="text/css" href="../../vendor/jasmine/jasmine.css">
+    <script type="text/javascript" src="../../vendor/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="../../vendor/jasmine/jasmine-html.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+var curl = {
+    baseUrl: '../../',
+    paths: {
+        curl: 'vendor/curl',
+        src: 'src/'
+    },
+    apiName: 'require',
+    pluginPath: 'vendor/curl/plugins'
+    };
+</script>
+
+<script type="text/javascript" src="../../vendor/curl/curl.js"></script>
+<script src="../../vendor/sinon/sinon-1.1.1.js"></script>
+<script src="../../vendor/sinon/jasmine-sinon.js"></script>
+
+<script type="text/javascript">
+
+var jasmineEnv = jasmine.getEnv();
+var trivialReporter = new jasmine.TrivialReporter();
+jasmineEnv.addReporter(trivialReporter);
+jasmineEnv.specFilter = function(spec) {
+    return trivialReporter.specFilter(spec);
+    };
+   
+require(["tests/jasmine/example", "domReady!"], function() {
+    jasmineEnv.execute();
+    });
+</script>
+
+</body>
+</html>
+
+
