@@ -1,4 +1,4 @@
-define(['src/example'], function( Example ) {
+define(['src/bootstrap', 'src/example'], function( Core, Example ) {
 
     module('Example');
 
@@ -9,9 +9,15 @@ define(['src/example'], function( Example ) {
     test("can increment a given number", function() {
         var example = new Example();
         var spy = sinon.spy(example, "increment");
-
         equal(example.increment(1), 2, "adds one");
         ok(example.increment.calledOnce, "called once");
+    });
+
+    test("view response to 'hey' event", function() {
+        var example = new Example();
+        var spy = sinon.spy(example, "incrementView");
+        Core.pubsub.emit('hey');
+        ok(example.incrementView.calledOnce, "view called once");
     });
 
 });
