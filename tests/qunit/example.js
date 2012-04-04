@@ -13,7 +13,7 @@ define(['src/bootstrap', 'src/example'], function( Core, Example ) {
         ok(example.increment.calledOnce, "called once");
     });
 
-    test("view response to 'hey' event", function() {
+    test("responds to a _hey_ event", function() {
         var example = new Example();
         var spy = sinon.spy(example, "incrementView");
         Core.pubsub.emit('hey');

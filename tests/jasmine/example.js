@@ -18,7 +18,7 @@ define(['src/bootstrap', 'src/example'], function( Core, Example ) {
         });
 
         // simulate an event to check the 'view' responds
-        it("view response to 'hey' event", function() {
+        it("responds to a _hey_ event", function() {
             Core.pubsub.emit('hey');
             expect(example.incrementView).toHaveBeenCalledOnce();
         });

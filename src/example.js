@@ -2,7 +2,7 @@ define(['src/bootstrap'], function( Core ) {
     
     var Example = function() {
         var that = this;
-
+        
         // listener
         Core.pubsub.on('hey', function() {
             that.incrementView();     
@@ -11,12 +11,13 @@ define(['src/bootstrap'], function( Core ) {
 
     Example.prototype = {
         
+        /* model */
         increment: function(i) {
             Core.pubsub.emit('hey');
             return i + 1;
         },
 
-        // interact with the dom
+        /* view */
         incrementView: function() {
             document.querySelectorAll('body');
         }
